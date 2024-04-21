@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="7" failures="0" skipped="0" tests="7" time="30.850" timestamp="2024-04-21T00:16:21.807985" hostname="8d2b3889c333"><testcase classname="backend.test.test_dao_integration" name="test_create_user" time="0.025"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def user_dao(mongo_db):
+&gt;       return DAO('users')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'users'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'
+
+src/util/validators.py:14: FileNotFoundError</error></testcase><testcase classname="backend.test.test_dao_integration" name="test_create_task" time="0.023"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/tasks.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def task_dao(mongo_db):
+&gt;       return DAO('tasks')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'tasks'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/tasks.json'
+
+src/util/validators.py:14: FileNotFoundError</error></testcase><testcase classname="backend.test.test_dao_integration" name="test_valid_input" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def user_dao(mongo_db):
+&gt;       return DAO('users')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'users'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'
+
+src/util/validators.py:14: FileNotFoundError</error></testcase><testcase classname="backend.test.test_dao_integration" name="test_invalid_input" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def user_dao(mongo_db):
+&gt;       return DAO('users')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'users'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'
+
+src/util/validators.py:14: FileNotFoundError</error></testcase><testcase classname="backend.test.test_dao_integration" name="test_database_connection" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def user_dao(mongo_db):
+&gt;       return DAO('users')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'users'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'
+
+src/util/validators.py:14: FileNotFoundError</error></testcase><testcase classname="backend.test.test_dao_integration" name="test_data_integrity" time="30.480"><error message="failed on setup with &quot;FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'&quot;">mongo_db = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'test_database')
+
+    @pytest.fixture(scope="module")
+    def user_dao(mongo_db):
+&gt;       return DAO('users')  # Pass only the collection name
+
+backend/test/test_dao_integration.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/util/dao.py:37: in __init__
+    validator = getValidator(collection_name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_name = 'users'
+
+    def getValidator(collection_name: str):
+        """Obtain a validator object of a collection which is stored as a json file with the same name. The validator must comply to a schema validation format (see https://www.mongodb.com/docs/manual/core/schema-validation/)
+    
+        parameters:
+            collection_name -- the name of the collection, which should also be the filename
+    
+        returns:
+            validator -- dict in the format of a MongoDB collection validator
+        """
+        if collection_name not in validators:
+&gt;           with open(f'./src/static/validators/{collection_name}.json', 'r') as f:
+E           FileNotFoundError: [Errno 2] No such file or directory: './src/static/validators/users.json'
+
+src/util/validators.py:14: FileNotFoundError</error><error message="failed on teardown with &quot;pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 66245ad539e83b58a3d72153, topology_type: Unknown, servers: [&lt;ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused')&gt;]&gt;&quot;">@pytest.fixture(scope='module')
+    def mongo_db():
+        client = MongoClient('mongodb://localhost:27017/')
+        db = client.test_database
+        yield db
+&gt;       client.drop_database('test_database')  # Clean up after tests
+
+backend/test/conftest.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.10/site-packages/pymongo/_csot.py:105: in csot_wrapper
+    return func(self, *args, **kwargs)
+/usr/local/lib/python3.10/site-packages/pymongo/mongo_client.py:1912: in drop_database
+    with self._socket_for_writes(session) as sock_info:
+/usr/local/lib/python3.10/site-packages/pymongo/mongo_client.py:1267: in _socket_for_writes
+    server = self._select_server(writable_server_selector, session)
+/usr/local/lib/python3.10/site-packages/pymongo/mongo_client.py:1257: in _select_server
+    server = topology.select_server(server_selector)
+/usr/local/lib/python3.10/site-packages/pymongo/topology.py:272: in select_server
+    server = self._select_server(selector, server_selection_timeout, address)
+/usr/local/lib/python3.10/site-packages/pymongo/topology.py:261: in _select_server
+    servers = self.select_servers(selector, server_selection_timeout, address)
+/usr/local/lib/python3.10/site-packages/pymongo/topology.py:223: in select_servers
+    server_descriptions = self._select_servers_loop(selector, server_timeout, address)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;Topology &lt;TopologyDescription id: 66245ad539e83b58a3d72153, topology_type: Unknown, servers: [&lt;ServerDescription ('lo...st', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused')&gt;]&gt;&gt;
+selector = &lt;function writable_server_selector at 0x7f0f42e2f760&gt;, timeout = 30, address = None
+
+    def _select_servers_loop(self, selector, timeout, address):
+        """select_servers() guts. Hold the lock when calling this."""
+        now = time.monotonic()
+        end_time = now + timeout
+        server_descriptions = self._description.apply_selector(
+            selector, address, custom_selector=self._settings.server_selector
+        )
+    
+        while not server_descriptions:
+            # No suitable servers.
+            if timeout == 0 or now &gt; end_time:
+&gt;               raise ServerSelectionTimeoutError(
+                    "%s, Timeout: %ss, Topology Description: %r"
+                    % (self._error_message(selector), timeout, self.description)
+                )
+E               pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused, Timeout: 30s, Topology Description: &lt;TopologyDescription id: 66245ad539e83b58a3d72153, topology_type: Unknown, servers: [&lt;ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused')&gt;]&gt;
+
+/usr/local/lib/python3.10/site-packages/pymongo/topology.py:238: ServerSelectionTimeoutError</error></testcase></testsuite></testsuites>

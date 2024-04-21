@@ -18,12 +18,16 @@ services:
     depends_on:
       - mongodb
     environment:
-      - MONGO_URL=mongodb://root:root@mongodb:27017
+      - MONGO_URL=mongodb://edutask-mongodb:27017/edutask
       - FLASK_BIND_IP=0.0.0.0
       - PYTHONUNBUFFERED=1
       - PORT=${PORT_BACKEND}
     ports:
       - "${PORT_BACKEND}:${PORT_BACKEND}"
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/test_results:/app/test_results
+      - ./backend/test:/app/backend/test
 
   frontend:
     build: ./frontend
@@ -38,6 +42,17 @@ services:
     ports:
       - "${PORT_FRONTEND}:${PORT_FRONTEND}"
     command: npm run start
+
+  test_backend:
+    build: ./backend
+    container_name: edutask-backend-test
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://root:root@mongodb:27017/rootDb
+      - FLASK_BIND_IP=0.0.0.0
+      - PYTHONUNBUFFERED=1
+    command: pytest /app/backend/test 
 
 networks:
   edutask:
